@@ -1,9 +1,6 @@
 {
     "require": {
         "php": "^7.4 || ^8.0",
-        "ext-dom": "*",
-        "ext-mbstring": "*",
-        "ext-zip": "*",
         "dompdf/dompdf": "^3.0"
     }
 }
