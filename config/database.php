@@ -6,7 +6,7 @@ function getDBConnection()
     $db = parse_url($dbUrl);
 
     $host = $db['host'];
-    $port = $db['port'];
+    $port = $db['port'] ?? 5432;
     $user = $db['user'];
     $password = $db['pass'];
     $dbname = ltrim($db['path'], '/');
