@@ -1,3 +1,4 @@
+<?php
 function getDBConnection()
 {
     $dbUrl = getenv('DATABASE_URL');  // Retrieve the environment variable
