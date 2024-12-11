@@ -1,7 +1,11 @@
-<?php
 function getDBConnection()
 {
-    $dbUrl = getenv('postgres://u83pkdmj3viohg:p46ccb1af85a6a102328ef91fe3a46fc886bc21ae91b9df3cb70948f84e80c991@c8lj070d5ubs83.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/d30mo4o64b32la');
+    $dbUrl = getenv('DATABASE_URL');  // Retrieve the environment variable
+
+    // Make sure the URL is retrieved
+    if (!$dbUrl) {
+        die("Database URL not found in environment variables.");
+    }
 
     $db = parse_url($dbUrl);
 
@@ -10,6 +14,7 @@ function getDBConnection()
     $user = $db['user'];
     $password = $db['pass'];
     $dbname = ltrim($db['path'], '/');
+
     try {
         $conn = new PDO(
             "pgsql:host=$host;port=$port;dbname=$dbname",
